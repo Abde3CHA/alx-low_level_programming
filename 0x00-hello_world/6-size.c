@@ -2,7 +2,7 @@
 /**
  *main - Enrty sizof
  *
- *return : always 0 (seccess)
+ *Return: Always 0 (Success)
  */
 int main(void)
 {
