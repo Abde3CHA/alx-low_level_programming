@@ -1,10 +1,2 @@
 #!/bin/bash
-
-# Get the name of the C file from the command-line argument
-CFILE=$1
-
-# Generate the assembly code using gcc with the -S flag
 gcc -S -masm=intel -o "${CFILE%.*}.s" "$CFILE"
-
-# Print a message to the console indicating success
-echo "Generated assembly code for $CFILE to ${CFILE%.*}.s"
