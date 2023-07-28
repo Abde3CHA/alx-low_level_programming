@@ -8,26 +8,31 @@
  */
 char *cap_string(char *str)
 {
-	int i;
-	int len = strlen(str);
+	int index = 0;
 
-	if (len > 0 && islower(str[0]))
+	while (str[index])
 	{
-	str[0] = toupper(str[0]);
+		while (!(str[index] >= 'a' && str[index] <= 'z'))
+			index++;
+
+		if (str[index - 1] == ' ' ||
+		    str[index - 1] == '\t' ||
+		    str[index - 1] == '\n' ||
+		    str[index - 1] == ',' ||
+		    str[index - 1] == ';' ||
+		    str[index - 1] == '.' ||
+		    str[index - 1] == '!' ||
+		    str[index - 1] == '?' ||
+		    str[index - 1] == '"' ||
+		    str[index - 1] == '(' ||
+		    str[index - 1] == ')' ||
+		    str[index - 1] == '{' ||
+		    str[index - 1] == '}' ||
+		    index == 0)
+			str[index] -= 32;
+
+		index++;
 	}
-	for (i = 1; i < len; i++)
-	{
-	if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
-	str[i] == ',' || str[i] == ';' || str[i] == '.' ||
-	str[i] == '!' || str[i] == '?' || str[i] == '"' ||
-	str[i] == '(' || str[i] == ')' || str[i] == '{' ||
-	str[i] == '}')
-	{
-		if (islower(str[i + 1]))
-		{
-		str[i + 1] = toupper(str[i + 1]);
-		}
-	}
-	}
-return (str);
+
+	return (str);
 }
