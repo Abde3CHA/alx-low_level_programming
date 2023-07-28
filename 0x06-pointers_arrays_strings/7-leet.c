@@ -6,20 +6,19 @@
  */
 char *leet(char *n)
 {
-	int i, j;
-	char replacements[5][2] = {{'a', '4'}, {'e', '3'}, {'o', '0'}, {'t', '7'}, {'l', '1'}};
+	int i;
+	char replacements[] = "443071";
+	char targetChars[] = "aeotlAEOTL";
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < strlen(targetChars); i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (int j = 0; j < strlen(str); j++)
 		{
-			if (str[i] == replacements[j][0])
+			if (str[j] == targetChars[i])
 			{
-			str[i] = replacements[j][1];
-			break;
+			str[j] = replacements[i];
 			}
 		}
 	}
-
 	return (str);
 }
